@@ -25,7 +25,7 @@ Executor::runFunction(Runtime::StackManager &StackMgr,
                       const Runtime::Instance::FunctionInstance &Func,
                       Span<const ValVariant> Params) {
   // Set start time.
-  if (Stat && Conf.getStatisticsConfigure().isTimeMeasuring()) {
+  if (Stat) {
     Stat->startRecordWasm();
   }
 
@@ -64,7 +64,7 @@ Executor::runFunction(Runtime::StackManager &StackMgr,
     spdlog::debug(" Terminated."sv);
   }
 
-  if (Stat && Conf.getStatisticsConfigure().isTimeMeasuring()) {
+  if (Stat) {
     Stat->stopRecordWasm();
   }
 
